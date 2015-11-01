@@ -1,0 +1,23 @@
+<ion-view view-title="Personaje">
+  <ion-content class="has-tabs-top">
+    <div class="container">
+      <h2>Comics</h2>
+      <div class="listaPersonajes">
+        <div class="list card" ng-repeat="v in Comics">
+          <div class="item item-avatar">
+            <img ng-src="{{v.thumbnail.path}}/standard_small.jpg">
+            <h2>{{v.title}}</h2>
+          </div>
+          <div class="item item-image">
+            <img ng-src="{{v.thumbnail.path}}/portrait_uncanny.jpg">
+          </div>
+          <div class="item item-body">
+            <p>
+              {{v.description}}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

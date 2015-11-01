@@ -1,0 +1,21 @@
+<ion-view view-title="Personaje">
+    <ion-content class="has-tabs-top">
+      <div class="container">
+        <h2>Búsqueda</h2>
+        <p>Estos son los resultados para: {{input.nombre}}</p>
+        <div class="listaPersonajes">
+          <div class="list card" ng-repeat="v in Personaje">
+            <div class="item item-avatar">
+              <img ng-src="{{v.thumbnail.path}}/standard_small.jpg">
+              <h2>{{v.name}}</h2>
+            </div>
+            <div class="item item-body">
+              <p>
+                {{v.description}}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ion-content>
+</ion-view>

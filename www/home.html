@@ -1,0 +1,20 @@
+<ion-view title="Home">
+    <ion-header-bar class="bar bar-header bar-assertive">
+        <h1 class="title">Personajes de Marvel</h1>
+    </ion-header-bar>
+    <ion-content>
+        <div class="container">
+            <h2>Buscador de personajes con Api de Marvel</h2>
+            <p>Esta es un app diseñada para mostrar contenidos obtenidos por el api de Marvel, utilizando tecnología Ionic</p>
+            <div class="list">
+              <label class="item item-input item-stacked-label">
+                <span class="input-label">Nombre completo del personaje</span>
+                <input type="text" placeholder="Tony Stark" ng-model="input.nombre" ng-change="updateInput(e)">
+              </label>
+              <button ui-sref="search" class="button button-block button-assertive">
+                      Buscar
+            </button>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>
