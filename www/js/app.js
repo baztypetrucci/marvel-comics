@@ -50,19 +50,23 @@ app.controller('SearchCtrl', function($scope, Busqueda, $http) {
     var idPersonaje;
     $http.get('https://gateway.marvel.com/v1/public/characters?apikey=fd5c2ffa2af583c51659be24b41e1203&ts=9&hash=74f732251e16455f8c07e261d31eaa7f&name='+Busqueda.nombre).success(function(data) {
     //$http.get('../spider-man.json').success(function(data) {
-        $scope.Personaje = data.data.results;
-        for (var i = 0; i < data.data.results.length; i++) {
-            idPersonaje = data.data.results[i].id;
-            $http.get('https://gateway.marvel.com/v1/public/characters/'+idPersonaje+'/comics?apikey=fd5c2ffa2af583c51659be24b41e1203&ts=9&hash=74f732251e16455f8c07e261d31eaa7f').success(function(data) {
-                $scope.Comics = data.data.results;
-            });
-        }
+		if(data.data.results.length){
+			$scope.Personaje = data.data.results;
+			for (var i = 0; i < data.data.results.length; i++) {
+				idPersonaje = data.data.results[i].id;
+				$http.get('https://gateway.marvel.com/v1/public/characters/'+idPersonaje+'/comics?apikey=fd5c2ffa2af583c51659be24b41e1203&ts=9&hash=74f732251e16455f8c07e261d31eaa7f').success(function(data) {
+					$scope.Comics = data.data.results;
+				});
+			}
+		}else{
+			$('.mensajeSinPersonaje').show();
+		}
     });
 
 });
 app.controller('BackCtrl', function($scope, $ionicHistory){
-    $scope.myGoBack = function() {
-        $ionicHistory.goBack();
+    $scope.goHome = function() {
+        window.location.href = '/';
     };
 });
 app.run(function($ionicPlatform) {

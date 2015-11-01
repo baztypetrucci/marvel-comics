@@ -18,7 +18,8 @@ ws.onmessage = function (event) {
   li.innerHTML = JSON.parse(event.data);
   document.querySelector('#pings').appendChild(li);
 };
-	</script> 
+	</script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
        <!-- ionic/angularjs js -->
         <script src="lib/ionic/js/ionic.bundle.js"></script>
         <!-- cordova script (this will be a 404 during development) -->
